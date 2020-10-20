@@ -14,12 +14,12 @@ public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private String id;
 	private String name;
 	private double price;
 	private int quantity;
 
-	public Product(long id, String name, double price, int quantity) {
+	public Product(String id, String name, double price, int quantity) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -31,11 +31,11 @@ public class Product implements Serializable {
 
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -63,26 +63,6 @@ public class Product implements Serializable {
 		this.quantity = quantity;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		return result;
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Product other = (Product) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
 
 }
