@@ -23,5 +23,24 @@ public class ProductService {
 		Optional<Product> obj = productRepository.findById(id);
 		return obj.get();
 	}
+	
+	public Product insert(Product obj) {
+		return productRepository.save(obj);
+	}
 
+	public void delete(Long id) {
+		productRepository.deleteById(id);
+	}
+	
+	public Product update(Long id, Product obj) {
+		Product entity = productRepository.getOne(id);
+		update(entity, obj);
+		return productRepository.save(entity);
+	}
+
+	private void update(Product entity, Product obj) {
+		 entity.setName(obj.getName());
+		 entity.setPrice(obj.getPrice());
+		 entity.setQuantity(obj.getQuantity());
+	}
 }
