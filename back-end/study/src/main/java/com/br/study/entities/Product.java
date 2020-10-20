@@ -14,13 +14,13 @@ public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	private long id;
+	
 	private String name;
 	private double price;
 	private int quantity;
 
-	public Product(String id, String name, double price, int quantity) {
-		super();
+	public Product(long id, String name, double price, int quantity) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -31,11 +31,11 @@ public class Product implements Serializable {
 
 	}
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
