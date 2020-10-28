@@ -1,1 +1,19 @@
-<p>product-update works!</p>
+<h3>Atualizar Produto</h3>
+<form (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Nome</label>
+        <input type="text" id="name" required [(ngModel)]="product.name" name="name">
+    </div>
+
+    <div>
+        <label for="price">Preço</label>
+        <input type="text" id="price" required [(ngModel)]="product.price" name="price">
+    </div>
+
+    <div>
+        <label for="quantity">Quantidade</label>
+        <input type="text" id="quantity" required [(ngModel)]="product.quantity" name="quantity">
+    </div>
+
+    <button type="submit">Salvar</button>
+</form>

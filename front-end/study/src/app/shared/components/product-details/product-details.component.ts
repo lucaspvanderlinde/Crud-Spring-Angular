@@ -4,19 +4,19 @@ import { ProductService } from 'src/app/core/services/product/product.service';
 import { Product } from '../../models/product/product';
 
 @Component({
-  selector: 'app-product-update',
-  templateUrl: './product-update.component.html',
-  styleUrls: ['./product-update.component.css']
+  selector: 'app-product-details',
+  templateUrl: './product-details.component.html',
+  styleUrls: ['./product-details.component.css']
 })
-export class ProductUpdateComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit {
 
   public id: number;
   public product: Product;
 
-  constructor(private route: ActivatedRoute, private router: Router,
-    private productService: ProductService) { }
+  constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router) { }
 
   ngOnInit() {
+
     this.product = new Product();
 
     this.id = this.route.snapshot.params['id'];
@@ -30,22 +30,7 @@ export class ProductUpdateComponent implements OnInit {
       );
   }
 
-  private updateProduct() {
-    this.productService.updateProduct(this.id, this.product)
-      .subscribe(data => {
-        console.log(data);
-        this.product = new Product();
-        this.gotoList();
-      },
-        error => console.log(error)
-      );
-  }
-
-  public onSubmit() {
-    this.updateProduct();
-  }
-
-  private gotoList() {
+  public list() {
     this.router.navigate(['/products']);
   }
 

@@ -5,11 +5,17 @@
         <th>nome</th>
         <th>preço</th>
         <th>quantidade</th>
+        <th>ações</th>
     </tr>
     <tr *ngFor="let product of products">
         <td> {{ product.id }} </td>
         <td> {{ product.name }} </td>
         <td> {{ product.price }} </td>
         <td> {{ product.quantity }} </td>
+        <td>
+            <button (click)="deleteProduct(product.id)">Delete</button>
+            <button (click)="updateProduct(product.id)">Alterar</button>
+            <button (click)="productDetails(product.id)">Detalhes</button> 
+        </td>
     </tr>
 </table>

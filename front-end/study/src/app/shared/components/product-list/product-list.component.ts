@@ -27,4 +27,22 @@ export class ProductListComponent implements OnInit {
       });
   }
 
+  public deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe(
+      data => {
+        console.log(data);
+        this.reloadData();
+      },
+      error => console.log(error)
+    );
+  }
+
+  public updateProduct(id: number){
+    this.router.navigate(['update', id]);
+  }
+
+  public productDetails(id: number){
+    this.router.navigate(['details', id]);
+  }
+
 }
