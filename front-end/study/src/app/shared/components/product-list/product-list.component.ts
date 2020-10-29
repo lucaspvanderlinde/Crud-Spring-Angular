@@ -15,33 +15,33 @@ export class ProductListComponent implements OnInit {
   public products: Observable<Product[]>;
 
   constructor(private productService: ProductService, private router: Router) { }
-  
+
   ngOnInit(): void {
     this.reloadData();
   }
 
-  private reloadData(){
+  private reloadData() {
     this.productService.getProducts()
       .subscribe(data => {
-         this.products = data;
+        this.products = data;
       });
   }
 
   public deleteProduct(id: number) {
-    this.productService.deleteProduct(id).subscribe(
-      data => {
+    this.productService.deleteProduct(id)
+      .subscribe(data => {
         console.log(data);
         this.reloadData();
       },
-      error => console.log(error)
-    );
+        error => console.log(error)
+      );
   }
 
-  public updateProduct(id: number){
+  public updateProduct(id: number) {
     this.router.navigate(['update', id]);
   }
 
-  public productDetails(id: number){
+  public productDetails(id: number) {
     this.router.navigate(['details', id]);
   }
 

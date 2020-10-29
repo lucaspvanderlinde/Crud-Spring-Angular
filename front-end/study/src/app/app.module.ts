@@ -9,6 +9,13 @@ import { ProductListComponent } from './shared/components/product-list/product-l
 import { ProductUpdateComponent } from './shared/components/product-update/product-update.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './shared/components/product-details/product-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { pt_BR } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import pt from '@angular/common/locales/pt';
+
+registerLocaleData(pt);
 
 @NgModule({
   declarations: [
@@ -22,9 +29,10 @@ import { ProductDetailsComponent } from './shared/components/product-details/pro
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
