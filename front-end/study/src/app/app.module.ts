@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './shared/components/product-details/product-details.component';
 
 import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
+import {TabMenuModule} from 'primeng/tabmenu';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {ButtonModule} from 'primeng/button';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
+    TableModule,
+    TabMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

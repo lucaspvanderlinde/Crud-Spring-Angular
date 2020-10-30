@@ -1,12 +1,10 @@
-<ul>
-    <li>
-        <a routerLink="products" routerLinkActive="active">Lista de Funcionários</a>
-    </li>
-    <li>
-        <a routerLink="add" routerLinkActive="active">Cadastrar Funcionário</a>
-    </li>
-</ul>
-
+<br>
+<br>
+<p-tabMenu [model]="items">
+    <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+</p-tabMenu>
+<br>
+<br>
 <div>
     <router-outlet></router-outlet>
 </div>

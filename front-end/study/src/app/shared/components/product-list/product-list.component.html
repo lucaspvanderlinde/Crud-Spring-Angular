@@ -1,21 +1,28 @@
 <h2>TESTE DE LISTA</h2>
-<table>
-    <tr>
-        <th>id</th>
-        <th>nome</th>
-        <th>preço</th>
-        <th>quantidade</th>
-        <th>ações</th>
-    </tr>
-    <tr *ngFor="let product of products">
-        <td> {{ product.id }} </td>
-        <td> {{ product.name }} </td>
-        <td> {{ product.price }} </td>
-        <td> {{ product.quantity }} </td>
-        <td>
-            <button (click)="deleteProduct(product.id)">Delete</button>
-            <button (click)="updateProduct(product.id)">Alterar</button>
-            <button (click)="productDetails(product.id)">Detalhes</button> 
-        </td>
-    </tr>
-</table>
+
+<div class="card">
+    <p-table [value]="products" styleClass="p-datatable-striped">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
+                <td>
+                    <button (click)="updateProduct(product.id)" pButton type="button" icon="pi pi-pencil" class="p-button-raised p-button-rounded p-button-secondary"></button>
+                    <button (click)="productDetails(product.id)" pButton type="button" icon="pi pi-eye" class="p-button-raised p-button-rounded p-button-success"></button>
+                    <button (click)="deleteProduct(product.id)" pButton type="button" icon="pi pi-times" class="p-button-raised p-button-rounded p-button-danger"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

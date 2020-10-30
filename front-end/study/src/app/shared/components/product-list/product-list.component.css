@@ -1,0 +1,12 @@
+.card {
+    width: 850px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+button {
+    margin-right: 5px;
+}
