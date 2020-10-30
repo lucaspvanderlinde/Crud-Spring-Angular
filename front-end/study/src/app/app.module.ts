@@ -10,6 +10,8 @@ import { ProductUpdateComponent } from './shared/components/product-update/produ
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './shared/components/product-details/product-details.component';
 
+import {ButtonModule} from 'primeng/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { ProductDetailsComponent } from './shared/components/product-details/pro
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
