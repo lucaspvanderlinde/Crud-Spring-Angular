@@ -39,12 +39,21 @@ public class ProductResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
+	// Utilizando created na resposta, vem resposta 201 que seria uma boa pratica.
 	@PostMapping
 	public ResponseEntity<Product> insert(@RequestBody Product obj) {
 		obj = productService.insert(obj);
+		// convertendo para URI
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
+	
+	// Resposta 200.
+	//@PostMapping
+	//public ResponseEntity<Product> insert(@RequestBody Product obj) {
+	//	obj = productService.insert(obj);
+	//	return ResponseEntity.ok().body(obj);
+	//}
 
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
